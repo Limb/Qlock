@@ -1,0 +1,30 @@
+// TLC5941 #1
+#define pinMin1 0
+#define pinMin2 1
+#define pinMin3 2
+#define pinMin4 3
+#define pinIt 4
+#define pinIs 5
+#define pinA 6
+#define pinQuarter 7
+#define pinTwenty 8
+#define pinFiveTop 9
+#define pinHalf 10
+#define pinTenTop 11
+#define pinTo 12
+#define pinPast 13
+
+//TLC5941 #2
+#define pinNine 16
+#define pinOne 17
+#define pinSix 18
+#define pinThree 19
+#define pinFour 20
+#define pinFiveBottom 21
+#define pinTwo 22
+#define pinEight 23
+#define pinEleven 24
+#define pinSeven 25
+#define pinTwelve 26
+#define pinTenBottom 27
+#define pinOClock 28
