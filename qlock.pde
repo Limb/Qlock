@@ -6,6 +6,7 @@ Qlock Two Remake by Kenneth Lorthioir
 #include <DateTime.h>
 #include <Messenger.h>
 #include "defines.h"
+#include "testfunctions.h"
 
 Messenger message = Messenger();
 
@@ -21,7 +22,7 @@ void messageReady()
       pcTime = message.readLong();
       DateTime.sync((time_t)pcTime);
       Serial.println(DateTime.now(), DEC);
-      //Serial.println(pcTime, DEC);
+      Serial.println(pcTime, DEC);
     }
     if(message.checkString("get"))
     {
@@ -34,6 +35,11 @@ void messageReady()
       Serial.println(DateTime.Second, DEC);
       Serial.println(DateTime.now(), DEC);
     }
+    if(message.checkString("pin"))
+    {
+      Tlc.set(message.readInt(), message.readInt());
+      Tlc.update();
+    }
     Serial.println(message.readChar());
   }
 }
@@ -42,8 +48,13 @@ void setup()
 {
   Serial.begin(9600);
   message.attach(messageReady);
+  Tlc.init();
 }
 
 void loop() {
   while ( Serial.available() )  message.process(Serial.read () );
+  
+  testTLC1();
+  
+  Tlc.update();
 }
