@@ -6,6 +6,7 @@ Qlock Two Remake by Kenneth Lorthioir
 #include <DateTime.h>
 #include <Messenger.h>
 #include "defines.h"
+#include "clock.h"
 #include "testfunctions.h"
 
 Messenger message = Messenger();
@@ -63,6 +64,7 @@ void setup()
   Serial.begin(9600);
   message.attach(messageReady);
   Tlc.init();
+  boot();
 }
 
 void loop() {
