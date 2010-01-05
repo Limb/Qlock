@@ -11,6 +11,7 @@ Qlock Two Remake by Kenneth Lorthioir
 Messenger message = Messenger();
 
 char cMessage[25] ="";
+bool moo = 0;
 
 void messageReady()
 {
@@ -37,8 +38,21 @@ void messageReady()
     }
     if(message.checkString("pin"))
     {
-      Tlc.set(message.readInt(), message.readInt());
-      Tlc.update();
+      if(message.checkString("on")) 
+      {
+        Tlc.setAll(4095);
+        Tlc.update();
+      }
+      else if(message.checkString("off"))
+      {
+        Tlc.setAll(0);
+        Tlc.update();
+      }
+      else 
+      {
+        Tlc.set(message.readInt(), message.readInt());
+        Tlc.update();
+      }
     }
     Serial.println(message.readChar());
   }
@@ -54,7 +68,11 @@ void setup()
 void loop() {
   while ( Serial.available() )  message.process(Serial.read () );
   
-  testTLC1();
+  if(moo == 0)
+  {
+    testTLC1();
+    moo = 1;
+  }
   
   Tlc.update();
 }
