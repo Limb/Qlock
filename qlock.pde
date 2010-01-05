@@ -12,7 +12,7 @@ Qlock Two Remake by Kenneth Lorthioir
 Messenger message = Messenger();
 
 char cMessage[25] ="";
-bool moo = 0;
+bool timeSet = 0;
 
 void messageReady()
 {
@@ -21,10 +21,13 @@ void messageReady()
     if(message.checkString("set"))
     {
       long int pcTime = 0;
-      pcTime = message.readLong();
+      pcTime = (message.readLong() - 18000); // dirty hack to convert to EST
       DateTime.sync((time_t)pcTime);
       Serial.println(DateTime.now(), DEC);
       Serial.println(pcTime, DEC);
+      DateTime.available();
+      clockSet(DateTime.Hour, DateTime.Minute, DateTime.Second);
+      timeSet = 1;
     }
     if(message.checkString("get"))
     {
@@ -64,17 +67,15 @@ void setup()
   Serial.begin(9600);
   message.attach(messageReady);
   Tlc.init();
-  boot();
+  clockBoot();
 }
 
 void loop() {
   while ( Serial.available() )  message.process(Serial.read () );
   
-  if(moo == 0)
+  if(timeSet == 1)
   {
-    testTLC1();
-    moo = 1;
+    DateTime.available();
+    clockUpdate(DateTime.Hour, DateTime.Minute, DateTime.Second);
   }
-  
-  Tlc.update();
 }
