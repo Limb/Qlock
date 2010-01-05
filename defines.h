@@ -1,30 +1,30 @@
 // TLC5941 #1
-#define pinMin1 0
-#define pinMin2 1
-#define pinMin3 2
-#define pinMin4 3
-#define pinIt 4
-#define pinIs 5
-#define pinA 6
-#define pinQuarter 7
-#define pinTwenty 8
-#define pinFiveTop 9
-#define pinHalf 10
-#define pinTenTop 11
-#define pinTo 12
-#define pinPast 13
+const byte pinMin1 = 0;
+const byte pinMin2 = 1;
+const byte pinMin3 = 2;
+const byte pinMin4 = 3;
+const byte pinIt = 4;
+const byte pinIs = 5;
+const byte pinA = 6;
+const byte pinQuarter = 7;
+const byte pinTwenty = 8;
+const byte pinFiveTop = 9;
+const byte pinHalf = 10;
+const byte pinTenTop = 11;
+const byte pinTo = 12;
+const byte pinPast = 13;
 
 //TLC5941 #2
-#define pinNine 16
-#define pinOne 17
-#define pinSix 18
-#define pinThree 19
-#define pinFour 20
-#define pinFiveBottom 21
-#define pinTwo 22
-#define pinEight 23
-#define pinEleven 24
-#define pinSeven 25
-#define pinTwelve 26
-#define pinTenBottom 27
-#define pinOClock 28
+const byte pinNine = 16;
+const byte pinOne = 17;
+const byte pinSix = 18;
+const byte pinThree = 19;
+const byte pinFour = 20;
+const byte pinFiveBottom = 21;
+const byte pinTwo = 22;
+const byte pinEight = 23;
+const byte pinEleven = 24;
+const byte pinSeven = 25;
+const byte pinTwelve = 26;
+const byte pinTenBottom = 27;
+const byte pinOClock = 28;
