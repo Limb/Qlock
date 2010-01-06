@@ -73,9 +73,8 @@ void setup()
 void loop() {
   while ( Serial.available() )  message.process(Serial.read () );
   
-  if(timeSet == 1)
-  {
-    DateTime.available();
+  DateTime.available();
+  
+  if(timeSet == 1 && DateTime.Second == 0)
     clockUpdate(DateTime.Hour, DateTime.Minute, DateTime.Second);
-  }
 }

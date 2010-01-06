@@ -20,26 +20,32 @@ void clockBoot()
 
 void clockSet(byte hour, byte min, byte sec)
 {
+  byte pinHour = 0;
+  byte mins = min%5;
+  
   Tlc.setAll(0);
   if(hour > 12)
   {
     hour -= 12;
+    pinHour = hour + 16;
   }
-  fadeIn(hour + 16);
+  else
+    pinHour = hour + 16;
+  
+  switch((int)floor(min/5))
+  {
+    case 0:
+    {
+      byte in[] = {pinHour, pinOClock};
+      fadeInBoot(in, 2, mins);
+    }
+    default:
+      break;
+  }
+
 }
 
 void clockUpdate(byte hour, byte min, byte sec)
 {
-  if(hour > 12)
-    hour -= 12;
-  if(min == 0 && sec == 0)
-  {
-    if(hour == 0)
-    {
-      fadeHours(pinEleven, pinTwelve);
-    }
-    else
-      fadeHours((hour + 15), (hour + 16));
-  }
   Tlc.update();
 }

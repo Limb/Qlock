@@ -3,16 +3,15 @@ const byte pinMin1 = 0;
 const byte pinMin2 = 1;
 const byte pinMin3 = 2;
 const byte pinMin4 = 3;
-const byte pinIt = 4;
-const byte pinIs = 5;
-const byte pinA = 6;
-const byte pinQuarter = 7;
-const byte pinTwenty = 8;
-const byte pinFiveTop = 9;
-const byte pinHalf = 10;
-const byte pinTenTop = 11;
-const byte pinTo = 12;
-const byte pinPast = 13;
+const byte pinItIs = 4;
+const byte pinA = 5;
+const byte pinQuarter = 6;
+const byte pinTwenty = 7;
+const byte pinFiveTop = 8;
+const byte pinHalf = 9;
+const byte pinTenTop = 10;
+const byte pinTo = 11;
+const byte pinPast = 12;
 
 //TLC5941 #2
 const byte pinTwelve = 16;
