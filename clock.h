@@ -7,7 +7,7 @@ void clockBoot()
   {
     Tlc.setAll(a);
     Tlc.update();
-    delay(25);
+    delay(15);
   }
   delay(1000);
   for(int a = 4095; a >= 0; a -= 35)
@@ -18,7 +18,7 @@ void clockBoot()
   }
 }
 
-void clockSet(byte hour, byte min, byte sec)
+void clockSet(byte hour, byte min)
 {
   byte pinHour = 0;
   byte mins = min%5;
@@ -113,7 +113,7 @@ void clockSet(byte hour, byte min, byte sec)
 
 }
 
-void clockUpdate(byte hour, byte min, byte sec)
+void clockUpdate(byte hour, byte min)
 {
   Tlc.update();
 }

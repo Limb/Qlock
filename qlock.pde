@@ -26,7 +26,7 @@ void messageReady()
       Serial.println(DateTime.now(), DEC);
       Serial.println(pcTime, DEC);
       DateTime.available();
-      clockSet(DateTime.Hour, DateTime.Minute, DateTime.Second);
+      clockSet(DateTime.Hour, DateTime.Minute);
       timeSet = 1;
     }
     if(message.checkString("get"))
@@ -76,5 +76,5 @@ void loop() {
   DateTime.available();
   
   if(timeSet == 1 && DateTime.Second == 0)
-    clockUpdate(DateTime.Hour, DateTime.Minute, DateTime.Second);
+    clockUpdate(DateTime.Hour, DateTime.Minute);
 }
